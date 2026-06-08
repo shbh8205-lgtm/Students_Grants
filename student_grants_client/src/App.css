@@ -1,0 +1,643 @@
+/* =========================================
+   1. בסיס וניקוי כללי
+   ========================================= */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    direction: rtl;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+#root, .app-container {
+    width: 100%;
+    display: block;
+    text-align: right;
+}
+
+/* =========================================
+   2. ניווט (Navbar)
+   ========================================= */
+.navbar-wrapper {
+    background-color: #ffffff;
+    width: 100%;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    direction: rtl;
+    border-bottom: 1px solid #e5e7eb;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+}
+
+.nav-right-group {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.nav-link {
+    color: #475569;
+    text-decoration: none;
+    padding: 10px 14px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.nav-link:hover {
+    color: #1e3a8a;
+    background-color: transparent;
+}
+
+.nav-link.active {
+    color: #1e3a8a;
+    font-weight: 600;
+    border-bottom: 2px solid #1e3a8a;
+    background-color: transparent;
+    border-radius: 0;
+}
+
+/* לוגו */
+.logo-text-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.logo-letter {
+    background-color: #1e3a8a;
+    color: white;
+    font-weight: 700;
+    font-size: 1.15rem;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    font-family: 'Georgia', 'Times New Roman', 'David', serif;
+    transition: background-color 0.2s ease;
+}
+
+.logo-text-container:hover .logo-letter {
+    background-color: #15296b;
+}
+
+.logo-main-text {
+    color: #0f172a;
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: -0.01em;
+}
+
+.logo-dot { color: #1e3a8a; font-weight: 700; }
+
+/* משתמש */
+.nav-user-info {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: #475569;
+    font-size: 0.92rem;
+}
+
+.user-name { color: #475569; }
+
+.user-avatar {
+    width: 34px;
+    height: 34px;
+    background-color: #1e3a8a;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border: none;
+}
+
+.nav-user-info u {
+    color: #1e3a8a;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 6px 10px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.nav-user-info u:hover {
+    background-color: #eef2ff;
+    text-decoration: underline;
+}
+
+/* =========================================
+   3. דף הבית (Hero & Grid)
+   ========================================= */
+.hero-section {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 70px 24px 80px;
+    color: #0f172a;
+}
+
+.hero-split {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr);
+    gap: 60px;
+    align-items: center;
+}
+
+.hero-content {
+    text-align: right;
+}
+
+.hero-eyebrow {
+    display: inline-block;
+    font-size: 0.85rem;
+    letter-spacing: 0.18em;
+    color: #1e3a8a;
+    font-weight: 600;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #1e3a8a;
+    margin-bottom: 22px;
+}
+
+.hero-content h1 {
+    font-family: 'Georgia', 'Times New Roman', 'David', serif;
+    font-size: 2.6rem;
+    line-height: 1.25;
+    margin: 0 0 18px;
+    color: #0f172a;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 0 0 32px;
+    color: #475569;
+    max-width: 520px;
+}
+
+.hero-emblem {
+    color: #1e3a8a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-emblem svg {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+}
+
+.cta-button-main {
+    background-color: #1e3a8a;
+    color: white;
+    padding: 14px 38px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.cta-button-main:hover {
+    background-color: #15296b;
+    transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+    .hero-split {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+    .hero-content { text-align: center; }
+    .hero-content h1 { font-size: 2.1rem; }
+    .hero-emblem { order: -1; }
+    .hero-emblem svg { max-width: 180px; }
+}
+
+.info-container {
+    max-width: 1100px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.section-title {
+    text-align: center;
+    font-family: 'Georgia', 'Times New Roman', 'David', serif;
+    font-size: 1.7rem;
+    margin: 10px 0 28px;
+    color: #0f172a;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+}
+
+.promotions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.promo-card {
+    background: white;
+    padding: 28px 24px;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+    text-align: center;
+    border-top: 3px solid #1e3a8a;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    font-weight: 500;
+    color: #334155;
+}
+
+.promo-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+}
+
+.promo-card.highlight {
+    background: #1e3a8a;
+    color: white;
+    border: 1px solid #1e3a8a;
+    border-top: 3px solid #1e3a8a;
+    box-shadow: 0 6px 16px rgba(30, 58, 138, 0.25);
+}
+
+/* =========================================
+   4. טפסים והרשמה/התחברות (Forms & Auth)
+   ========================================= */
+.form-container, .auth-card, .form {
+    background-color: #ffffff;
+    padding: 40px 36px;
+    border: 1px solid #e5e7eb;
+    border-top: 3px solid #1e3a8a;
+    border-radius: 6px;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+    max-width: 460px;
+    margin: 40px auto;
+    direction: rtl;
+}
+
+/* כותרות לדפי האימות */
+.auth-title {
+    font-family: 'Georgia', 'Times New Roman', 'David', serif;
+    font-size: 1.7rem;
+    color: #0f172a;
+    margin: 0 0 8px;
+    letter-spacing: -0.01em;
+}
+
+.auth-subtitle {
+    color: #64748b;
+    font-size: 0.95rem;
+    margin: 0 0 28px;
+    line-height: 1.5;
+}
+
+.auth-form { display: flex; flex-direction: column; }
+
+.input-group { margin-bottom: 4px; }
+
+/* שדות קלט מאוחדים */
+form input, .form input, .main-input {
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    color: #0f172a;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    font-family: inherit;
+}
+
+form input::placeholder, .main-input::placeholder { color: #94a3b8; }
+
+form input:focus, .main-input:focus {
+    border-color: #1e3a8a;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.12);
+}
+
+/* כפתורי טפסים */
+form button, .btn-submit {
+    background-color: #1e3a8a;
+    color: white;
+    padding: 13px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1.02rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    font-family: inherit;
+}
+
+form button:hover, .btn-submit:hover {
+    background-color: #15296b;
+    transform: translateY(-1px);
+}
+
+/* דף התחברות ייעודי */
+.login-page-container, .signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 85vh;
+    padding: 40px 20px;
+    background-color: #f8fafc;
+}
+
+.auth-divider {
+    margin: 24px 0 16px;
+    position: relative;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.auth-divider span {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    padding: 0 14px;
+    color: #94a3b8;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+}
+
+.btn-link {
+    background: none;
+    border: none;
+    color: #475569;
+    cursor: pointer;
+    font-size: 0.95rem;
+    text-decoration: none;
+    padding: 8px;
+    text-align: center;
+    width: 100%;
+}
+
+.btn-link strong {
+    color: #1e3a8a;
+    font-weight: 600;
+}
+
+.btn-link:hover strong { text-decoration: underline; }
+/* =========================================
+   5. טופס רב-שלבי (Stepper & Multi-step Form)
+   ========================================= */
+
+/* מעטפת כללית קומפקטית */
+.stepper-wrapper {
+    max-width: 750px;
+    margin: 20px auto; 
+    padding: 10px;
+}
+
+/* --- מד ההתקדמות (Stepper) --- */
+.stepper-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+}
+
+.step-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.step-button {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1.5px solid #cbd5e1;
+    background: white;
+    color: #64748b;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: inherit;
+}
+
+.step-button.active {
+    border-color: #1e3a8a;
+    color: #1e3a8a;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(30, 58, 138, 0.12);
+}
+
+.step-button.completed {
+    background-color: #1e3a8a;
+    border-color: #1e3a8a;
+    color: white;
+}
+
+.step-label {
+    margin-top: 12px;
+    font-size: 0.82rem;
+    color: #64748b;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+}
+
+.step-item .step-button.active + .step-label,
+.step-item:has(.step-button.completed) .step-label {
+    color: #1e3a8a;
+}
+
+.step-connector {
+    flex: 1;
+    height: 2px;
+    background-color: #e2e8f0;
+    margin: 0 -10px;
+    position: relative;
+    top: -16px;
+    z-index: 1;
+}
+
+.step-connector.completed {
+    background-color: #1e3a8a;
+}
+
+/* --- כרטיסיית התוכן (Form Card) --- */
+.form-content-card {
+    background: white;
+    padding: 36px 32px;
+    border: 1px solid #e5e7eb;
+    border-top: 3px solid #1e3a8a;
+    border-radius: 6px;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.step-fields-container {
+    margin-bottom: 28px;
+}
+
+/* --- ניווט בתוך הטופס (Buttons) --- */
+.form-navigation-inner {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 22px;
+}
+
+.form-navigation-inner button {
+    padding: 11px 22px;
+    font-size: 0.98rem;
+    height: 44px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    font-family: inherit;
+}
+
+.form-navigation-inner button:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.form-navigation-inner button:not(:disabled):hover {
+    transform: translateY(-1px);
+}
+
+.btn-primary {
+    background: #1e3a8a;
+    color: white;
+    flex: 2;
+}
+
+.btn-primary:not(:disabled):hover {
+    background: #15296b;
+}
+
+.btn-secondary {
+    background: white;
+    color: #475569;
+    border-color: #cbd5e1;
+    flex: 1;
+}
+
+.btn-secondary:not(:disabled):hover {
+    background: #f8fafc;
+    color: #0f172a;
+    border-color: #94a3b8;
+}
+
+.btn-draft {
+    background: white;
+    color: #1e3a8a;
+    border-color: #1e3a8a;
+    flex: 1;
+}
+
+.btn-draft:not(:disabled):hover {
+    background: #eef2ff;
+}
+/* =========================================
+   6. סטטוסים (Badges)
+   ========================================= */
+.status-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 3px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-align: center;
+}
+.status-approved { background-color: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; }
+.status-pending  { background-color: #eff6ff; color: #1e3a8a; border: 1px solid #c7d2fe; }
+.status-rejected { background-color: #fef2f2; color: #991b1b; border: 1px solid #fecaca; }
+
+/* --- עמוד סטטוס בקשה --- */
+.status-page {
+    max-width: 720px;
+    margin: 50px auto;
+    padding: 0 20px;
+    direction: rtl;
+}
+
+.status-panel {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-top: 3px solid #1e3a8a;
+    border-radius: 6px;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+    padding: 36px 36px 32px;
+    text-align: right;
+}
+
+.status-panel .status-badge {
+    margin-bottom: 16px;
+}
+
+.status-title {
+    font-family: 'Georgia', 'Times New Roman', 'David', serif;
+    font-size: 1.6rem;
+    color: #0f172a;
+    margin: 0 0 14px;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+}
+
+.status-body {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #475569;
+    margin: 0;
+}
